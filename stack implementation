@@ -1,0 +1,87 @@
+import java.util.*;
+
+public class Stack {
+    int capacity;
+    int top;
+    int arr[];
+
+    Stack(int cap) {
+        capacity = cap;
+        top = -1;
+        arr = new int[capacity];
+    }
+
+    void push(int val) {
+        if (top == capacity - 1) {
+            System.out.println("Stack Overflow");
+            return;
+        }
+        arr[++top] = val;
+        System.out.println(val + " pushed to stack.");
+    }
+
+    int pop() {
+        if (top == -1) {
+            System.out.println("Underflow");
+            return -1;
+        }
+        return arr[top--];
+    }
+
+    int peek() {
+        if (top == -1) {
+            System.out.println("Underflow");
+            return -1;
+        }
+        return arr[top];
+    }
+
+    int size() {
+        return top + 1;
+    }
+
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        Stack obj = new Stack(10);
+        int choice;
+
+        do {
+            System.out.println("\n--- Stack Menu ---");
+            System.out.println("1. PUSH");
+            System.out.println("2. POP");
+            System.out.println("3. PEEK");
+            System.out.println("4. SIZE");
+            System.out.println("5. EXIT");
+            System.out.print("Enter your choice: ");
+            choice = s.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter value to push: ");
+                    int val = s.nextInt();
+                    obj.push(val);
+                    break;
+                case 2:
+                    int popped = obj.pop();
+                    if (popped != -1)
+                        System.out.println("Popped element: " + popped);
+                    break;
+                case 3:
+                    int topVal = obj.peek();
+                    if (topVal != -1)
+                        System.out.println("Top element: " + topVal);
+                    break;
+                case 4:
+                    System.out.println("Current size: " + obj.size());
+                    break;
+                case 5:
+                    System.out.println("Exiting...");
+                    break;
+                default:
+                    System.out.println("Invalid Input");
+            }
+        } while (choice != 5);
+
+        s.close();
+    }
+}
