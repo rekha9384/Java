@@ -1,0 +1,28 @@
+class maxtwo{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0; i<n; i++){
+            arr[i] = sc.nextInt();
+            
+        }
+        int maxone = 0;
+        int maxtwo = 0;
+        for(int i=0; i<n; i++){
+            if(maxone < arr[i]){
+                maxtwo = maxone;
+                maxone = arr[i];
+                
+               
+            }
+            else if(maxtwo < arr[i]){
+                maxtwo = arr[i];
+                
+            }
+        }
+        System.out.println("the first largest: " + maxone);
+        System.out.println("the second largest: " + maxtwo);
+        
+    }
+}
