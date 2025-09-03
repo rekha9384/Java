@@ -1,0 +1,24 @@
+import java.util.Scanner;
+class repeat{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        char[] ch = str.toCharArray();
+        boolean found = false;
+        
+        for(int i=0; i<ch.length; i++){
+            for(int j=i+1; j<ch.length; j++){
+                if(ch[i] == ch[j]){
+                    System.out.println("print repeating character " + ch[i]);
+                    found = true;
+                    break;
+                }
+            }
+        }
+        if(!found){
+            System.out.println("not found");
+        }
+                
+            
+    }
+}
