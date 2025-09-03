@@ -1,0 +1,28 @@
+
+import java.util.Scanner;
+class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        char[] ch = str.toCharArray();
+        boolean found = false;
+        int[] count = new int[256];
+        for(int i=0; i<ch.length; i++){
+            count[ch[i]]++;
+        }
+        for(int i=0; i<ch.length; i++){
+            if(count[ch[i]]>1){
+                    System.out.println("Repeating char: " + ch[i] + "-" + count[ch[i]] + "times");
+                    count[ch[i]] = 0;
+                    found = true;
+                    
+                
+            }
+            
+        }
+        if(!found){
+            System.out.println("not found");
+        }
+    }
+    
+}
