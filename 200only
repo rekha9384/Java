@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+class Number {
+    private static final String[] units = { 
+        "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", 
+        "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", 
+        "sixteen", "seventeen", "eighteen", "nineteen"
+    };
+
+    private static final String[] tens = {
+        "", "", "twenty", "thirty", "forty", "fifty", 
+        "sixty", "seventy", "eighty", "ninety"
+    };
+
+    public static String convertToWords(int n) {
+        if (n == 0) {
+            return "zero only";
+        }
+        if (n < 0 || n > 999) {
+            return "invalid input";
+        }
+
+        StringBuilder words = new StringBuilder();
+
+        if (n >= 100) {
+            words.append(units[n / 100]).append(" hundred");
+            if (n % 100 != 0) {
+                words.append(" and ");
+            }
+        }
+
+        int remainder = n % 100;
+
+        if (remainder > 0) {
+            if (remainder < 20) {
+                words.append(units[remainder]);
+            } else {
+                words.append(tens[remainder / 10]);
+                if (remainder % 10 != 0) {
+                    words.append(" ").append(units[remainder % 10]);
+                }
+            }
+        }
+
+        words.append(" only");
+        return words.toString().trim();
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(convertToWords(n));
+    }
+}
