@@ -1,0 +1,19 @@
+import java.util.Scanner;
+import java.util.HashSet;
+import java.util.Set;
+
+class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        char[] ch = str.toCharArray();
+        
+        Set<Character>vowels = new HashSet<>();
+        for(char c : ch){
+            if("aeiouAEIOU".indexOf(c) != -1){
+                vowels.add(c);
+            }
+        }
+        System.out.println("unique vowels: " + vowels);
+  }
+}
