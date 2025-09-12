@@ -1,0 +1,41 @@
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    int n = sc.nextInt();
+	    int[] arr = new int[n];
+	    for(int i=0; i<n; i++){
+	        arr[i] = sc.nextInt();
+	    }
+	    int max = arr[0];
+	    int min = arr[0];
+	    
+	    for(int i=1; i<n; i++){
+	        if(arr[i] > max) max = arr[i];
+	        if(arr[i] < min) min = arr[i];
+	       
+	        
+	    }
+	    System.out.println("Max - Min = " + (max - min));
+	    
+	    int secondMax = Integer.MIN_VALUE;
+	    for(int i=0; i<n; i++){
+	        if(arr[i] > secondMax && arr[i] < max){
+	            secondMax = arr[i];
+	        }
+	    }
+	    
+	    
+	    if(secondMax == Integer.MIN_VALUE) {
+	        System.out.println("No second maximum");
+	    }
+	    else{
+	        System.out.println("max - 2nd Max =" + (max - secondMax));
+	    }
+	    
+	    
+	    
+	
+	}
+}
