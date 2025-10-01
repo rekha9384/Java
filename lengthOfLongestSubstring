@@ -1,0 +1,36 @@
+import java.util.*;
+
+class Main{
+    public static int lengthOfLongestSubstring(String s){
+        Set<Character> set = new HashSet<>();
+        int i = 0, maxLen = 0;
+        List<String> substrings = new ArrayList<>();
+        for( int j=0; j<s.length(); j++){
+            while(set.contains(s.charAt(j))){
+                set.remove(s.charAt(i));
+                i++;
+            }
+            set.add(s.charAt(j));
+            int currentLen = j-i+1;
+            if(currentLen > maxLen){
+                maxLen = currentLen;
+                substrings.clear();
+                substrings.add(s.substring(i, j+1));
+                
+            }
+            else if(currentLen == maxLen){
+                substrings.add(s.substring(i, j+1));
+            }
+        }
+        for(String sub : substrings){
+            System.out.println(sub);
+        }
+        return maxLen;
+    }
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        System.out.println(lengthOfLongestSubstring(s));
+        
+    }
+}
