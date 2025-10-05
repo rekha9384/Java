@@ -1,0 +1,28 @@
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int square = n*n;
+        int rev = reverse(n);
+        int revSquare = rev*rev;
+        int revOfSquare = reverse(square);
+        if(revSquare == revOfSquare){
+            System.out.println(n + " adam no");
+        }
+        else{
+            System.out.println(n + " No adam no");
+        }
+        sc.close();
+    }
+    public static int reverse(int num){
+        int rev = 0;
+        while(num > 0){
+            int digit = num % 10;
+            rev = rev*10 + digit;
+            num = num/10;
+        }
+        return rev;
+    }
+    
+}
