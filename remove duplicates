@@ -1,0 +1,25 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    int n = sc.nextInt();
+	    int[] a = new int[n];
+	    for(int i=0; i<n; i++){
+	        a[i] = sc.nextInt();
+	    }
+	    Arrays.sort(a);
+	    int i=0;
+	   for(int j=1; j<n; j++){
+	       if(a[i] != a[j]){
+	           i++;
+	           a[i] = a[j];
+	            
+	       }
+	   }
+	    
+	    int uniquelength= i+1;
+	    System.out.println("unique : " + uniquelength );
+		System.out.println(Arrays.toString(Arrays.copyOf(a, uniquelength)));
+	}
+}
