@@ -1,0 +1,32 @@
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0; i<n; i++){
+            arr[i] = sc.nextInt();
+        }
+        int S = sc.nextInt();
+        int start = 0, currSum = 0;
+        boolean found = false;
+        for(int end=0; end<n; end++){
+            currSum += arr[end];
+            while(currSum > S && start < end){
+                currSum -= arr[start];
+                start++;
+                
+            }
+            if(currSum == S){
+                System.out.println("subarray start to end " + start + "to" + end);
+                found = true;
+                break;
+            }
+        }
+        if(!found){
+            System.out.println("No subarray with given sum found");
+            
+        }
+    }
+    
+}
