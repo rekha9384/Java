@@ -1,0 +1,32 @@
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String str = sc.nextLine();
+        boolean found = false;
+
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            boolean repeated = false;
+
+            for (int j = i + 1; j < str.length(); j++) {
+                if (str.charAt(j) == ch) {
+                    repeated = true;
+                    break;
+                }
+            }
+
+           
+            if (repeated) {
+                System.out.println(ch + " is a repeating character");
+                found = true;
+            }
+        }
+
+        if (!found) {
+            System.out.println("No repeating characters found");
+        }
+    }
+}
